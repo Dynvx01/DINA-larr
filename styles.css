@@ -1,0 +1,179 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Gaya untuk bintang */
+.star {
+    position: absolute;
+    width: 6px; /* Ukuran bintang yang lebih besar */
+    height: 6px; /* Ukuran bintang yang lebih besar */
+    border-radius: 50%;
+    background: white; /* Warna bintang */
+    opacity: 0; /* Awalnya bintang tidak terlihat */
+    animation: falling 3s linear infinite;
+}
+
+/* Menambahkan bintang dengan animasi jatuh */
+.star:nth-child(1) { left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { left: 30%; animation-delay: 1s; }
+.star:nth-child(3) { left: 50%; animation-delay: 2s; }
+.star:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+.star:nth-child(5) { left: 90%; animation-delay: 2.5s; }
+.star:nth-child(6) { left: 20%; animation-delay: 3s; }
+.star:nth-child(7) { left: 40%; animation-delay: 0.5s; }
+.star:nth-child(8) { left: 60%; animation-delay: 1.2s; }
+.star:nth-child(9) { left: 80%; animation-delay: 2s; }
+.star:nth-child(10) { left: 25%; animation-delay: 3.2s; }
+
+/* Animasi untuk bintang jatuh */
+@keyframes falling {
+    0% {
+        transform: translateY(-100vh); /* Mulai di atas layar */
+        opacity: 1; /* Tampilkan bintang */
+    }
+    100% {
+        transform: translateY(100vh); /* Bergerak ke bawah layar */
+        opacity: 0; /* Sembunyikan bintang */
+    }
+}
+
+/* Gaya untuk form password */
+#passwordScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+}
+
+#passwordScreen input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#passwordScreen button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FFD700;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#passwordScreen button:hover {
+    background-color: #FFA500;
+}
+
+/* Gaya untuk layar pembuka */
+#opening {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    display: none; /* Awalnya tersembunyi */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#opening h1 {
+    font-size: 3rem;
+    color: #FFD700;
+    animation: zoomIn 1.5s ease-in-out;
+}
+
+.container {
+    display: none;
+    animation: fadeInContent 1.5s ease-in-out;
+}
+
+h1 {
+    color: #FFD700;
+    animation: bounceIn 1.5s ease-in-out, floating 3s ease-in-out infinite;
+    font-size: 3rem;
+}
+
+h2, p {
+    color: #ADD8E6;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FFD700;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #FFA500;
+}
+
+#message {
+    display: none;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #FFD700;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animasi Zoom-in untuk opening */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
